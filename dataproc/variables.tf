@@ -1,4 +1,4 @@
-variable "paroject_name" {
+variable "project_name" {
   type = string
 }
 variable "region" {
