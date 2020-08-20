@@ -1,6 +1,6 @@
 resource "google_dataproc_cluster" "dataflowcluster" {
-  name   = "dataflowcluster"
-  region = "us-central1"
+  name   = var.paroject_name
+  region = var.region
   labels = {
     cluster = "dataproc"
   }
