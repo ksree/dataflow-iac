@@ -15,11 +15,7 @@
  */
 
 output "bigquery_dataset" {
-  value       = module.bigquery.bigquery_dataset
+  value       = google_bigquery_dataset.dataflow_dataset.dataset_id
   description = "Bigquery dataset resource."
 }
 
-output "bigquery_tables" {
-  value       = module.bigquery.bigquery_tables
-  description = "Map of bigquery table resources being provisioned."
-}

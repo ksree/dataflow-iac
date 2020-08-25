@@ -1,7 +1,6 @@
-resource "google_bigquery_dataset" "dataflow" {
+resource "google_bigquery_dataset" "dataflow_dataset" {
   dataset_id                  = "dataflow_hybrid_cloud"
-  friendly_name               = "dataflow dataset"
-  description                 = "This is the dataset for dataflow project"
+  friendly_name               = "dataflowdataset"
   location                    = "US"
   default_table_expiration_ms = 3600000
 
@@ -10,13 +9,17 @@ resource "google_bigquery_dataset" "dataflow" {
   }
 
   access {
-    role          = "OWNER"
-    user_by_email = "kapilsreed12@gmail.com"
-
+    role          = "WRITER"
+    special_group = "projectWriters" 
   }
-
+  access {
+    role          = "OWNER"
+    special_group = "projectOwners" 
+  }
+  access {
+    role          = "READER"
+    special_group = "projectReaders" 
+  }
 }
 
-resource "google_service_account" "bqowner" {
-  account_id = "bqowner"
-}
+
