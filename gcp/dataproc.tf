@@ -29,7 +29,12 @@ resource "google_dataproc_cluster" "dataflowcluster" {
     preemptible_worker_config {
       num_instances = 0
     }
+    software_config {
 
+      override_properties = {
+        "dataproc:dataproc.conscrypt.provider.enable" = "false"
+      }
+    } 
   }
 }
 
