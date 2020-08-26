@@ -1,5 +1,5 @@
 resource "google_bigquery_dataset" "dataflow_dataset" {
-  dataset_id                  = "dataflow_hybrid_cloud"
+  dataset_id                  = "dataflow"
   friendly_name               = "dataflowdataset"
   location                    = "US"
   default_table_expiration_ms = 3600000

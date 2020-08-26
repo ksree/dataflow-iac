@@ -46,3 +46,10 @@ resource "azurerm_sql_database" "dataflow" {
     environment = "dev"
   }
 }
+resource "azurerm_sql_firewall_rule" "dataflow" {
+  name                = "FirewallRule1"
+  resource_group_name = azurerm_resource_group.dataflow.name
+  server_name         = azurerm_sql_server.dataflow.name
+  start_ip_address    = var.start_ip_address
+  end_ip_address      = var.end_ip_address
+}
