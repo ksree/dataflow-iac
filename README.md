@@ -40,6 +40,27 @@ ARM_SUBSCRIPTION_ID
    2. Login to your confluent cloud cluster:
        ccloud login
        
-      
+       #Create confluent cloud cluster on GCP
+       ccloud kafka cluster create dataflow_kafka_cluster --cloud "gcp" --region "us-east1"
+       
+       You will see an output similar to this:
+       It may take up to 5 minutes for the Kafka cluster to be ready.
+        +--------------+--------------------------------------------------------+
+        | Id           | lkc-v883n                                              |
+        | Name         | dataflow_kafka_cluster                                 |
+        | Type         | BASIC                                                  |
+        | Ingress      |                                                    100 |
+        | Egress       |                                                    100 |
+        | Storage      |                                                   5000 |
+        | Provider     | gcp                                                    |
+        | Availability | LOW                                                    |
+        | Region       | us-east1                                               |
+        | Status       | UP                                                     |
+        | Endpoint     | SASL_SSL://pkc-4yyd6.us-east1.gcp.confluent.cloud:9092 |
+        | ApiEndpoint  | https://pkac-ew1dj.us-east1.gcp.confluent.cloud        |
+        +--------------+--------------------------------------------------------+
+        
+        
+
 
  [Check out this article to see how this project is used](https://medium.com/@kapilsreed/build-a-hybrid-multi-cloud-data-lake-and-perform-data-processing-using-apache-spark-ecabedd54882)
