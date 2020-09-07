@@ -31,4 +31,15 @@ ARM_SUBSCRIPTION_ID
  
  Authentication: Service accounts 
  
+  **Confluent Cloud **
+
+   To install Confluent Cloud 
+   1. Install cloud client: 
+      cd ~/dataflow-iac/confluent
+      sudo ./install_cloud_cli.sh
+   2. Login to your confluent cloud cluster:
+       ccloud login
+       
+      
+
  [Check out this article to see how this project is used](https://medium.com/@kapilsreed/build-a-hybrid-multi-cloud-data-lake-and-perform-data-processing-using-apache-spark-ecabedd54882)
