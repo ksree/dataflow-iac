@@ -60,7 +60,12 @@ ARM_SUBSCRIPTION_ID
         | ApiEndpoint  | https://pkac-ew1dj.us-east1.gcp.confluent.cloud        |
         +--------------+--------------------------------------------------------+
         
+        #Verify the newly created cluster
+        ccloud kafka cluster list
         
-
+        You will see an output similar to this :
+        -------------+------------------------+-------+----------+----------+--------------+--------+
+    lkc-v883n | dataflow_kafka_cluster | BASIC | gcp      | us-east1 | LOW          | UP
+        
 
  [Check out this article to see how this project is used](https://medium.com/@kapilsreed/build-a-hybrid-multi-cloud-data-lake-and-perform-data-processing-using-apache-spark-ecabedd54882)
