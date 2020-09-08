@@ -33,17 +33,22 @@ ARM_SUBSCRIPTION_ID
  
   **Confluent Cloud **
 
-   To install Confluent Cloud 
+Create Confluent Cloud Kafka Cluster
+   
    1. Install cloud client: 
-      cd ~/dataflow-iac/confluent
-      sudo ./install_cloud_cli.sh
-   2. Login to your confluent cloud cluster:
-       ccloud login
+
+
+   2. Login to your confluent cloud cluster using ccloud client:
+       ```shell script
+           ccloud login
+       ```
+   3. Create confluent cloud cluster on GCP
+       ```shell script
+           ccloud kafka cluster create dataflow_kafka_cluster --cloud "gcp" --region "us-east1"
+       ```
+   You will see an output similar to this: 
        
-       #Create confluent cloud cluster on GCP
-       ccloud kafka cluster create dataflow_kafka_cluster --cloud "gcp" --region "us-east1"
        
-       You will see an output similar to this:
        It may take up to 5 minutes for the Kafka cluster to be ready.
         +--------------+--------------------------------------------------------+
         | Id           | lkc-v883n                                              |
@@ -60,12 +65,15 @@ ARM_SUBSCRIPTION_ID
         | ApiEndpoint  | https://pkac-ew1dj.us-east1.gcp.confluent.cloud        |
         +--------------+--------------------------------------------------------+
         
-        #Verify the newly created cluster
-        ccloud kafka cluster list
-        
-        You will see an output similar to this :
-        -------------+------------------------+-------+----------+----------+--------------+--------+
-    lkc-v883n | dataflow_kafka_cluster | BASIC | gcp      | us-east1 | LOW          | UP
+   Verify the newly created cluster:
+   ```shell script
+       ccloud kafka cluster list
+   ```
+   
+   You will see an output similar to this :
+   
+     -------------+------------------------+-------+----------+----------+--------------+--------+
+     lkc-v883n | dataflow_kafka_cluster | BASIC | gcp      | us-east1 | LOW          | UP
         
 
  [Check out this article to see how this project is used](https://medium.com/@kapilsreed/build-a-hybrid-multi-cloud-data-lake-and-perform-data-processing-using-apache-spark-ecabedd54882)
