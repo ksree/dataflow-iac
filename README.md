@@ -36,7 +36,10 @@ ARM_SUBSCRIPTION_ID
 Create Confluent Cloud Kafka Cluster
    
    1. Install cloud client: 
-
+       ```shell script
+           cd ~/dataflow-iac/confluent/
+           sudo ./install_cloud_cli.sh
+       ```
 
    2. Login to your confluent cloud cluster using ccloud client:
        ```shell script
@@ -71,9 +74,32 @@ Create Confluent Cloud Kafka Cluster
    ```
    
    You will see an output similar to this :
-   
+   ```text
+        Id      |          Name          | Type  | Provider |  Region  | Availability | Status
      -------------+------------------------+-------+----------+----------+--------------+--------+
      lkc-v883n | dataflow_kafka_cluster | BASIC | gcp      | us-east1 | LOW          | UP
         
+   ```
+   Note down your Id, you will need to create a Kafka Topic.
+    
+   You can also verify the Cluster by login in at  :
+     https://confluent.cloud/login
+   
+   
+   4. Create a new Kafka Topic:
+      
+      Set the Id into an environment variable
+   ```shell script
+      export CLUSTER_ID=<YOUR_CLUSTER_ID>
+   ```
+
+   ```shell script
+      ccloud kafka topic create \
+       -- cluster $CLUSTER_ID \
+       --partitions 6 \
+       --verbose \
+       transactions
+   ```
+
 
  [Check out this article to see how this project is used](https://medium.com/@kapilsreed/build-a-hybrid-multi-cloud-data-lake-and-perform-data-processing-using-apache-spark-ecabedd54882)
